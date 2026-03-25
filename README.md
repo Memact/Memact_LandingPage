@@ -15,4 +15,4 @@ Open `http://localhost:8000` or your LAN IP on a phone.
 
 `render.yaml` is configured for a static site. Deploy the repo root.
 
-# Memact_LandingPage
+
