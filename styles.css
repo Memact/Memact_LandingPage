@@ -547,6 +547,16 @@ textarea::placeholder {
     flex-direction: column;
   }
 
+  .citation-card,
+  .citation-top {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .citation-top {
+    align-items: stretch;
+  }
+
   .button,
   .citation-link {
     width: 100%;
