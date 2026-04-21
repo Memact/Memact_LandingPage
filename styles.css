@@ -452,6 +452,12 @@ textarea::placeholder {
 }
 
 @media (max-width: 560px) {
+  body {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.055), transparent 34%),
+      var(--bg);
+  }
+
   .page-shell {
     max-width: 100%;
     padding:
