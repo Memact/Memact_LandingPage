@@ -7,17 +7,17 @@ This is the public landing page for Memact. Actual version under development: ht
 Memact is positioned as:
 
 ```text
-Answers with citations from your own consumed digital activity.
+Cite Your Thoughts.
 ```
 
-The landing page is intentionally static and Render-ready. It includes an interactive sample demo that shows how Memact answers a thought/question using citation links from sample captured activity.
+The landing page is intentionally static and Render-ready. It shows Memact as a simple product: type a thought, get a cited answer backed by links from what the user read, watched, searched, and revisited.
 
 ## What This Page Shows
 
-- a minimal Memact hero
-- an interactive citation-backed answer demo
+- a short product-heavy Memact hero
+- an interactive "cite this thought" demo
 - real clickable citation links
-- a short explanation of the six-engine architecture
+- a simple three-step product flow
 - strict visual consistency with the current Memact Interface style
 
 ## Local Preview
@@ -52,7 +52,7 @@ echo "Memact landing ready"
 - mobile-first and safe-area aware
 - no unsupported claims
 - every demo answer includes citation links
-- demo data is clearly sample activity
+- no heavy architecture explanation on the landing page
 
 ## License
 

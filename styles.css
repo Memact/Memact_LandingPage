@@ -319,7 +319,7 @@ textarea::placeholder {
 
 .pipeline {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 6px;
 }
 
@@ -465,7 +465,7 @@ textarea::placeholder {
   }
 
   .pipeline {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .engine-grid {

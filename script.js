@@ -1,36 +1,36 @@
-const pipelineSteps = ["Capture", "Inference", "Schema", "Origin", "Influence", "Answer"];
+const pipelineSteps = ["Thought", "Matches", "Sources", "Answer"];
 
 const demos = [
   {
     id: "startup",
     prompt: "Why do I feel like I should build something real before applying?",
     answer:
-      "Based on the sample activity, this thought is best supported by sources about building proof before waiting for permission. The strongest citation is Paul Graham's essay on doing things that do not scale, which emphasizes manually getting a startup moving [1]. YC's startup library also supports the broader startup-learning context [2].",
-    confidence: "Demo answer, citation-backed",
+      "This thought is mostly supported by sources about building proof before waiting for permission. Paul Graham's essay is the strongest match because it pushes early founders toward direct, scrappy action [1]. YC's startup library adds broader context around founder learning and execution [2].",
+    confidence: "Cited sample",
     citations: [
       {
         title: "Do Things that Don't Scale",
         domain: "paulgraham.com",
         url: "https://paulgraham.com/ds.html",
-        type: "Influence pattern",
+        type: "Strong match",
         reason:
-          "Supports the idea that early builders create proof through direct action instead of waiting for validation.",
+          "Matches the idea that early builders create proof through direct action.",
       },
       {
         title: "YC Startup Library",
         domain: "ycombinator.com",
         url: "https://www.ycombinator.com/library",
-        type: "Repeated theme",
+        type: "Related source",
         reason:
-          "Represents repeated exposure to startup, founder, prototype, and application-related learning.",
+          "Adds context around startup learning, founder work, and early execution.",
       },
       {
         title: "Startup School",
         domain: "startupschool.org",
         url: "https://www.startupschool.org/",
-        type: "Source context",
+        type: "Related source",
         reason:
-          "Supports the sample activity cluster around learning startup execution and founder proof.",
+          "Connects the thought to startup execution and founder practice.",
       },
     ],
   },
@@ -38,65 +38,65 @@ const demos = [
     id: "focus",
     prompt: "What shaped my recent interest in deep work and attention?",
     answer:
-      "The sample evidence points to repeated exposure around deep work, focus, and resisting distraction. The strongest source is Cal Newport's public writing around Deep Work [1], with supporting context from his broader work on digital minimalism and attention [2].",
-    confidence: "Demo answer, citation-backed",
+      "This thought is tied to repeated sources about focus, depth, and resisting distraction. Cal Newport's public writing is the clearest match for the deep-work theme [1]. His digital minimalism work supports the attention side of the thought [2].",
+    confidence: "Cited sample",
     citations: [
       {
         title: "Cal Newport",
         domain: "calnewport.com",
         url: "https://calnewport.com/",
-        type: "Influence pattern",
+        type: "Strong match",
         reason:
-          "Supports the repeated attention/deep-work theme in the sample captured activity.",
+          "Matches the interest in deep work, focus, and attention.",
       },
       {
         title: "The Book Facebook Doesn't Want You to Read",
         domain: "calnewport.com",
         url: "https://calnewport.com/the-book-facebook-doesnt-want-you-to-read/",
-        type: "Origin candidate",
+        type: "Related source",
         reason:
-          "Includes public context around Deep Work and the value of focused, distraction-free work.",
+          "Adds context around focused, distraction-free work.",
       },
       {
         title: "The Deep Life",
         domain: "thedeeplife.com",
         url: "https://www.thedeeplife.com/",
-        type: "Schema context",
+        type: "Related source",
         reason:
-          "Supports the broader mental-frame signal around depth, focus, and intentional attention.",
+          "Connects the thought to a broader interest in depth and intentional attention.",
       },
     ],
   },
   {
-    id: "agents",
-    prompt: "Why am I thinking more about AI agents lately?",
+    id: "build-in-public",
+    prompt: "Why do I keep thinking that I should build in public?",
     answer:
-      "The sample activity suggests this interest is connected to repeated technical exposure around agents, tool use, and model context. OpenAI's Agents guide supports the agent-building theme [1], while MCP documentation supports the surrounding context about connecting models to external tools and data [2].",
-    confidence: "Demo answer, citation-backed",
+      "This thought is supported by sources about sharing progress early and learning from real users. Startup School is the strongest match for the builder context [1]. YC's library and Paul Graham's essay support the same pattern: make the work visible, practical, and close to users [2].",
+    confidence: "Cited sample",
     citations: [
       {
-        title: "OpenAI Agents SDK",
-        domain: "platform.openai.com",
-        url: "https://platform.openai.com/docs/guides/agents-sdk/",
-        type: "Repeated theme",
+        title: "Startup School",
+        domain: "startupschool.org",
+        url: "https://www.startupschool.org/",
+        type: "Strong match",
         reason:
-          "Supports the technical agent-building theme in the sample activity.",
+          "Matches the builder context around early progress, practice, and feedback.",
       },
       {
-        title: "Model Context Protocol",
-        domain: "modelcontextprotocol.io",
-        url: "https://modelcontextprotocol.io/docs/getting-started/intro",
-        type: "Source context",
+        title: "YC Startup Library",
+        domain: "ycombinator.com",
+        url: "https://www.ycombinator.com/library",
+        type: "Related source",
         reason:
-          "Supports the sample pattern around tools, context, and model-connected workflows.",
+          "Adds context around founder learning, startup writing, and public progress.",
       },
       {
-        title: "LangChain Agents",
-        domain: "docs.langchain.com",
-        url: "https://docs.langchain.com/oss/javascript/langchain/agents",
-        type: "Influence pattern",
+        title: "Do Things that Don't Scale",
+        domain: "paulgraham.com",
+        url: "https://paulgraham.com/ds.html",
+        type: "Related source",
         reason:
-          "Supports repeated exposure to agent orchestration and action-taking systems.",
+          "Supports the idea of doing visible, direct work before everything is polished.",
       },
     ],
   },
@@ -184,7 +184,7 @@ function renderCitation(citation, index) {
 
 function runDemo() {
   window.clearInterval(activeTimer);
-  answerOutput.innerHTML = `<p class="answer-copy">Reading sample captured activity...</p>`;
+  answerOutput.innerHTML = `<p class="answer-copy">Finding source links for this thought...</p>`;
   renderPipeline(0);
 
   let index = 0;
