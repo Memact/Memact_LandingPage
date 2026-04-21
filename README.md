@@ -2,7 +2,7 @@
 
 Version: `v2.0`
 
-This is the public landing page for Memact.
+This is the public landing page for Memact. Actual version under development: https://github.com/Memact/Interface
 
 Memact is positioned as:
 
