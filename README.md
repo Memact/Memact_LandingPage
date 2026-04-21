@@ -45,6 +45,18 @@ Render can build with:
 echo "Memact landing ready"
 ```
 
+## Google Search Setup
+
+After `https://www.memact.com` is live:
+
+1. Open Google Search Console.
+2. Add a Domain property for `memact.com`.
+3. Verify ownership with the DNS TXT record Google provides.
+4. Submit the sitemap URL: `https://www.memact.com/sitemap.xml`.
+5. Inspect `https://www.memact.com/` and request indexing after the first live deploy.
+
+The site includes canonical tags, crawl directives, `robots.txt`, `sitemap.xml`, and JSON-LD structured data for Google Search.
+
 ## Design Rules
 
 - minimal and uncluttered
