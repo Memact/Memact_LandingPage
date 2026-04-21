@@ -1,5 +1,3 @@
-const pipelineSteps = ["Thought", "Matches", "Sources", "Answer"];
-
 const demos = [
   {
     id: "startup",
@@ -105,7 +103,6 @@ const demos = [
 const queryInput = document.querySelector("#demo-query");
 const sampleList = document.querySelector("#sample-list");
 const answerButton = document.querySelector("#answer-button");
-const pipeline = document.querySelector("#pipeline");
 const answerOutput = document.querySelector("#answer-output");
 const copyrightYear = document.querySelector("#copyright-year");
 
@@ -129,15 +126,6 @@ function renderSamples() {
         </button>
       `
     )
-    .join("");
-}
-
-function renderPipeline(activeIndex = -1) {
-  pipeline.innerHTML = pipelineSteps
-    .map((step, index) => {
-      const state = index < activeIndex ? "is-complete" : index === activeIndex ? "is-active" : "";
-      return `<span class="pipeline-step ${state}">${step}</span>`;
-    })
     .join("");
 }
 
@@ -184,20 +172,9 @@ function renderCitation(citation, index) {
 }
 
 function runDemo() {
-  window.clearInterval(activeTimer);
+  window.clearTimeout(activeTimer);
   answerOutput.innerHTML = `<p class="answer-copy">Finding source links for this thought...</p>`;
-  renderPipeline(0);
-
-  let index = 0;
-  activeTimer = window.setInterval(() => {
-    index += 1;
-    renderPipeline(index);
-    if (index >= pipelineSteps.length) {
-      window.clearInterval(activeTimer);
-      renderPipeline(pipelineSteps.length);
-      renderAnswer(activeDemo);
-    }
-  }, 260);
+  activeTimer = window.setTimeout(() => renderAnswer(activeDemo), 520);
 }
 
 sampleList.addEventListener("click", (event) => {
@@ -228,5 +205,4 @@ if (copyrightYear) {
   copyrightYear.textContent = String(new Date().getFullYear());
 }
 renderSamples();
-renderPipeline();
 renderAnswer(activeDemo);

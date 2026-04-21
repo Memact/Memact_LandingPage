@@ -300,11 +300,14 @@ textarea::placeholder {
 }
 
 .demo-pill {
+  min-height: 66px;
   width: 100%;
+  display: flex;
+  align-items: center;
   padding: 12px 14px;
   text-align: left;
   color: var(--white-76);
-  font-size: clamp(14px, 1.25vw, 16px);
+  font-size: clamp(12px, 1vw, 14px);
   font-weight: 800;
   line-height: 1.3;
 }
@@ -317,29 +320,6 @@ textarea::placeholder {
 .answer-card {
   display: grid;
   gap: 18px;
-}
-
-.pipeline {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
-}
-
-.pipeline-step {
-  min-height: 34px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--white-16);
-  border-radius: 999px;
-  color: var(--white-46);
-  font-size: 11px;
-  font-weight: 900;
-}
-
-.pipeline-step.is-active,
-.pipeline-step.is-complete {
-  background: var(--white);
-  color: var(--bg);
 }
 
 .answer-output {
@@ -466,10 +446,6 @@ textarea::placeholder {
     min-height: 180px;
   }
 
-  .pipeline {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .engine-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -492,10 +468,13 @@ textarea::placeholder {
   .footer {
     width: 100%;
     max-width: calc(100vw - 28px);
+    margin-inline: auto;
   }
 
   .nav {
     align-items: flex-start;
+    justify-content: center;
+    margin-inline: auto;
   }
 
   .nav-link {
@@ -527,11 +506,28 @@ textarea::placeholder {
     line-height: 1.7;
   }
 
+  .hero-copy,
+  .section-heading {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .demo-grid,
+  .engine-grid {
+    width: 100%;
+    margin-inline: auto;
+  }
+
   .hero-actions,
   .citation-top,
   .footer {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .hero-actions {
+    width: min(100%, 280px);
+    justify-self: center;
   }
 
   .button,
@@ -547,10 +543,6 @@ textarea::placeholder {
     max-width: 100%;
     overflow: hidden;
     border-radius: 24px;
-  }
-
-  .pipeline {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .engine-grid {
